@@ -1,0 +1,13 @@
+<div class="x">
+  <a (click)="onClose()"><h5>X</h5></a>
+</div>
+<div class="container">
+  <h3>Assessments Assigned for you</h3>
+  <div class="list-section">
+    <div *ngFor="let skill of skills">
+      <div class="row">
+        <button (click)="onClick(skill)">{{ skill }}</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,98 @@
+<app-toolbar></app-toolbar>
+
+<div class="container">
+  <mat-tab-group animationDuration="1000ms">
+    <mat-tab label="Assessments">
+      <mat-tab-group animationDuration="1000ms">
+        <mat-tab label="Add Assessments">
+          <app-add-assessments></app-add-assessments>
+        </mat-tab>
+        <mat-tab label="Update Assessments">
+          <app-update-assessments></app-update-assessments>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-tab>
+    <mat-tab label="Courses">
+      <mat-tab-group animationDuration="1000ms">
+        <mat-tab label="Edit Courses">
+          <div style="margin-top: 20px" class="example-form">
+            <form>
+              <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Skills</mat-label>
+                <input
+                  type="text"
+                  placeholder="Select"
+                  aria-label="Skill"
+                  matInput
+                  [formControl]="myControl"
+                  [matAutocomplete]="auto"
+                />
+                <mat-autocomplete
+                  autoActiveFirstOption
+                  #auto="matAutocomplete"
+                  (optionSelected)="onSelect($event)"
+                >
+                  <mat-option
+                    *ngFor="let option of filteredOptions | async"
+                    [value]="option"
+                  >
+                    {{ option }}
+                  </mat-option>
+                </mat-autocomplete>
+              </mat-form-field>
+            </form>
+            <mat-form-field
+              class="example-chip-list"
+              appearance="outline"
+              style="width: 400px; height: auto; padding-left: 20px"
+            >
+              <mat-label>Courses</mat-label>
+              <mat-chip-grid #chipGrid aria-label="Course selection">
+                <mat-chip-row
+                  *ngFor="let course of courses"
+                  (removed)="remove(course)"
+                >
+                  {{ course }}
+                  <button matChipRemove [attr.aria-label]="'remove ' + course">
+                    <mat-icon>cancel</mat-icon>
+                  </button>
+                </mat-chip-row>
+              </mat-chip-grid>
+              <input
+                placeholder="New Course..."
+                #courseInput
+                [formControl]="courseForm"
+                [matChipInputFor]="chipGrid"
+                [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                (matChipInputTokenEnd)="add($event)"
+              />
+            </mat-form-field>
+            <button
+              class="button"
+              style="position: relative; top: 9px; left: 20px"
+              (click)="onUpdate()"
+            >
+              Update
+            </button>
+            <button
+              class="button"
+              style="
+                position: relative;
+                top: 9px;
+                left: 20px;
+                background-color: #ff6666;
+                border-color: #ff6666;
+              "
+              (click)="onDelete()"
+            >
+              Delete
+            </button>
+          </div>
+        </mat-tab>
+        <mat-tab label="Add New Course">
+          <app-add-course></app-add-course>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-tab>
+  </mat-tab-group>
+</div>

@@ -1,0 +1,179 @@
+<mat-toolbar>
+  <!-- <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with add icon">
+    <mat-icon (click)="drawer.toggle()">menu</mat-icon>
+  </button> -->
+  <span style="color: white" (click)="onClick()"
+    ><img
+      src="assets/icons/icons.png"
+      alt=""
+      style="padding-right: 10px"
+      (click)="onClick()"
+    />Admin Portal</span
+  >
+  <span class="example-spacer"></span>
+  <!-- <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with add icon">
+      <mat-icon (click)="openAccInfo()" >account_box</mat-icon>
+    </button> -->
+  <ul class="nav">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="/admin-projects"
+        >Projects</a
+      >
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="/skill"
+        >Skill Approval</a
+      >
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="/certificates"
+        >Certificates</a
+      >
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/trainingRequests">Training</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/view-user">Users</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/course" style="padding-right: 100px"
+        >Courses</a
+      >
+    </li>
+  </ul>
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with exit icon"
+  >
+    <mat-icon (click)="signOut()">exit_to_app</mat-icon>
+  </button>
+</mat-toolbar>
+<div class="container">
+  <div style="margin-top: 10px">
+    <mat-form-field appearance="outline" style="width: 1200px">
+      <mat-label>Filter</mat-label>
+      <input
+        matInput
+        (keyup)="applyFilter($event)"
+        placeholder="Ex. AWS, CCP"
+        #input
+      />
+    </mat-form-field>
+
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource" matSort>
+        <ng-container matColumnDef="mail">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Mail</th>
+          <td mat-cell *matCellDef="let row">{{ row.mail }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+          <td mat-cell *matCellDef="let row">{{ row.name }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="sbu">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>SBU</th>
+          <td mat-cell *matCellDef="let row">{{ row.sbu }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="sl">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>SL</th>
+          <td mat-cell *matCellDef="let row">{{ row.sl }}</td>
+        </ng-container>
+
+        <!-- <ng-container matColumnDef="skill">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Skill</th>
+        <td mat-cell *matCellDef="let row"> {{row.skill}} </td>
+      </ng-container> -->
+
+        <ng-container matColumnDef="courses" style="width: 100%">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Courses</th>
+          <td mat-cell *matCellDef="let row">{{ row.courses }}</td>
+        </ng-container>
+
+        <div class="actbutton">
+          <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+              Approve / Reject
+            </th>
+            <td mat-cell *matCellDef="let row">
+              <button
+                mat-icon-button
+                style="
+                  margin-right: 10px;
+                  background-color: #262626;
+                  border-color: #262626;
+                  color: whitesmoke;
+                "
+              >
+                <mat-icon>done icon</mat-icon>
+              </button>
+              <button
+                mat-icon-button
+                style="
+                  background-color: #ff6666;
+                  border-color: #ff6666;
+                  color: whitesmoke;
+                "
+                (click)="onReject(row.mail)"
+              >
+                <mat-icon>close icon</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+        </div>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr
+          mat-row
+          *matRowDef="let row; columns: displayedColumns"
+          (click)="onSelect(row)"
+        ></tr>
+
+        <!-- Row shown when there is no matching data. -->
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">
+            No data matching the filter "{{ input.value }}"
+          </td>
+        </tr>
+      </table>
+
+      <mat-paginator
+        [pageSizeOptions]="[5, 10, 25, 100]"
+        aria-label="Select page of users"
+      ></mat-paginator>
+    </div>
+  </div>
+</div>
+
+<div class="requestCard" *ngIf="selectedRow">
+  <h6>Name: {{ selectedRow.name }}</h6>
+  <h6>Mail: {{ selectedRow.mail }}</h6>
+  <h6>SBU: {{ selectedRow.sbu }}</h6>
+  <h6>SL: {{ selectedRow.sl }}</h6>
+  <h6>
+    Courses: [
+    <div *ngFor="let course of selectedRow.courses" style="text-align: start">
+      {{ course }}
+    </div>
+    ]
+  </h6>
+  <form [formGroup]="skillAssignForm">
+    <mat-form-field appearance="outline">
+      <mat-label>Matched Skills</mat-label>
+      <mat-select formControlName="skill">
+        <mat-option
+          *ngFor="let skill of selectedRow.skill"
+          value="{{ skill }}"
+          (onSelectionChange)="setValue(skill)"
+        >
+          Skill:{{ skill.skill }} Percentage: {{ skill.percentage }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+  <button (click)="onApprove()">Approve</button>
+</div>

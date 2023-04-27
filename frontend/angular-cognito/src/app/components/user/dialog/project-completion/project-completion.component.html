@@ -1,0 +1,24 @@
+<div class="container">
+  <h3>Project Status update</h3>
+  <form [formGroup]="projectForm">
+    <div class="mainForm">
+      <mat-form-field appearance="outline">
+        <mat-label>Project Name</mat-label>
+        <mat-select formControlName="projectname">
+          <mat-option *ngFor="let project of projects" value="{{ project }}">
+            {{ project }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Status</mat-label>
+        <mat-select formControlName="status">
+          <mat-option value="Completed">Completed</mat-option>
+          <mat-option value="Not completed">Not completed</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </form>
+  <button mat-fab color="warn" mat-dialog-close>Close</button>
+  <button mat-fab color="primary" (click)="onRequests()">Request</button>
+</div>

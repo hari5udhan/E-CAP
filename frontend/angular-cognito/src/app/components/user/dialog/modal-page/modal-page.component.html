@@ -1,0 +1,11 @@
+<div class="x">
+  <a (click)="onClose()"><h5>X</h5></a>
+</div>
+<div class="container" *ngIf="modalData">
+  <h2>{{ status }}</h2>
+  <div style="padding: 30px">
+    <ul *ngFor="let li of list">
+      <li>{{ li }}</li>
+    </ul>
+  </div>
+</div>

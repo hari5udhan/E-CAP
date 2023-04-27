@@ -1,0 +1,118 @@
+
+.container{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.top-container{
+    height: 60%;
+    width: 115%;
+    background-size: cover;
+}
+
+
+.top-container h3{
+    font-family: 'Alegreya', serif;
+    font-size: 3em;
+    color: #4d4d4d;
+    padding-left: 5%;
+}
+
+.top-container button{
+    padding: 12px 10px;
+    border: 0;        
+    background-color: black;
+    border-radius: 3px;     
+    margin-top: 10px;
+    letter-spacing: 1px;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    left: 5%;
+}
+
+.hstack{
+    position: relative;
+    bottom: 30px;
+    left: 230px;
+}
+
+.hstack a{
+    text-decoration: none;
+    color: black;
+}
+
+.hstack a:hover{
+    text-decoration: solid 1px black;
+}
+
+.middle-container{
+    height: 40%;
+    width: 115%;
+    background-color: white;
+    padding-left: 150px;
+    padding-top: 30px;
+}
+.card{
+    height: 270px;
+    width: 300px;
+    border: none;
+    margin-right: 20px;
+    background-color: white;
+}
+
+.btn{
+    padding: 10px 25px;
+    margin-bottom: 10px;
+}
+
+.card-title{
+    font-family: 'Open Sans', sans-serif;
+}
+
+.card-text{
+    text-align: justify;
+    color: #4d4d4d;
+    font-family: 'Poppins', sans-serif;
+}
+
+.table-container{
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    width: 115%;
+    height: 55%;
+    padding-top: 50px;
+}
+
+.green-row {
+    color:  #00cc00;
+  }
+  
+  .red-row {
+    color: #ff6666;
+  }
+.bottom-container{
+    padding: 0;
+    margin: 0;
+    /* position: relative;
+    top: 50px; */
+    background-color: black;
+    height: 9%;
+    width: 115%;
+    text-align: center;
+  }
+  
+  .bottom-container h6{
+    font-family: 'Space Mono', monospace;
+    color: #4d4d4d;
+    font-size: 0.8em;
+  }
+  
+  .bottom-container .col{
+    padding-top: 10px;
+    padding-bottom: 16px;
+  }
+  

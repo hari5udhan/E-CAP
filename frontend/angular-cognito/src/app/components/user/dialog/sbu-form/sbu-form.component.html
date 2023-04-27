@@ -1,0 +1,161 @@
+<div class="formContainer">
+  <h2>Profile Details</h2>
+  <form [formGroup]="servicesForm">
+    <div class="mainForm">
+      <mat-form-field appearance="outline">
+        <mat-label>First Name</mat-label>
+        <input
+          type="text"
+          name="fname"
+          placeholder="First Name"
+          matInput
+          formControlName="fname"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Last Name</mat-label>
+        <input
+          type="text"
+          name="lname"
+          placeholder="Last Name"
+          matInput
+          formControlName="lname"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>SBU</mat-label>
+        <input
+          type="text"
+          name="sbu"
+          placeholder="SBU"
+          matInput
+          formControlName="sbu"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>SL</mat-label>
+        <input
+          type="text"
+          name="sl"
+          placeholder="SL"
+          matInput
+          formControlName="sl"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Designation</mat-label>
+        <input
+          type="text"
+          name="role"
+          placeholder="Designation"
+          matInput
+          formControlName="role"
+        />
+      </mat-form-field>
+
+      <!-- <div class="checkbox">
+        <h6>If any certifications?</h6>
+        <input type="checkbox" ((click))="showCertification()" />
+      </div> -->
+      <form [formGroup]="servicesForm">
+        <mat-form-field
+          class="example-chip-list"
+          appearance="outline"
+          *ngIf="isCertified"
+        >
+          <mat-label>Certificates</mat-label>
+          <mat-chip-grid #chipGrid aria-label="Course selection">
+            <mat-chip-row
+              *ngFor="let certificates of newCertificates"
+              (removed)="removeNew(certificates)"
+            >
+              {{ certificates }}
+              <!-- <button > -->
+              <mat-icon
+                matChipRemove
+                [attr.aria-label]="'remove ' + certificates"
+                >cancel</mat-icon
+              >
+              <!-- </button> -->
+            </mat-chip-row>
+          </mat-chip-grid>
+          <input
+            placeholder="New Course..."
+            #courseInput
+            formControlName="courses"
+            [matChipInputFor]="chipGrid"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+            (matChipInputTokenEnd)="addNewCertificates($event)"
+          />
+        </mat-form-field>
+      </form>
+      <!-- <div class="row row-cols-3">
+        <mat-form-field
+          appearance="outline"
+          style="width: 40%; margin-left: 10px"
+          *ngIf="isCertified"
+        >
+          <mat-label>Certification Provider</mat-label>
+          <mat-select>
+            <mat-option
+              value="Amazon Web Service(AWS)"
+              (onSelectionChange)="onOther('aws')"
+              >Amazon Web Service</mat-option
+            >
+            <mat-option
+              value="Google Cloud Platform(GCP)"
+              (onSelectionChange)="onOther('gcp')"
+              >Google Cloud Platform</mat-option
+            >
+            <mat-option
+              value="Microsoft Azure"
+              (onSelectionChange)="onOther('azure')"
+              >Microsoft Azure</mat-option
+            >
+            <mat-option (onSelectionChange)="onOther('Other')" value="Other"
+              >Other</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field
+          appearance="outline"
+          *ngIf="isCertified"
+          style="width: 40%"
+        >
+          <mat-label>Certification Level</mat-label>
+          <mat-select>
+            <mat-option value="Foundational" (onSelectionChange)="onSelect('f')"
+              >Foundational</mat-option
+            >
+            <mat-option value="Associate" (onSelectionChange)="onSelect('a')"
+              >Associate</mat-option
+            >
+            <mat-option value="Professional" (onSelectionChange)="onSelect('p')"
+              >Professional</mat-option
+            >
+          </mat-select>
+          <input
+            type="text"
+            name="certificationLevel"
+            placeholder="Level of Certification"
+            matInput
+            *ngIf="isOther"
+          />
+        </mat-form-field>
+      </div> -->
+
+      <div class="row row-cols-4">
+        <div class="col">
+          <button mat-fab color="warn" mat-dialog-close>Close</button>
+        </div>
+        <div class="col">
+          <button (click)="onUpdate()">Update</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

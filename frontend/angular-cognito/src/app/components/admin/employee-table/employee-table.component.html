@@ -1,0 +1,78 @@
+<div class="container">
+  <mat-form-field appearance="outline" style="width: 1265px; padding-top: 20px">
+    <mat-label>Filter</mat-label>
+    <input
+      matInput
+      (keyup)="applyFilter($event)"
+      placeholder="Ex. AWS, CCP"
+      #input
+    />
+  </mat-form-field>
+  <!-- <button  class="button" (click)="onDeleteAll()">Delete Selected</button> -->
+
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+      <ng-container matColumnDef="select">
+        <th mat-header-cell *matHeaderCellDef>
+          <mat-checkbox
+            (change)="$event ? masterToggle() : null"
+            [checked]="selection.hasValue() && isAllSelected()"
+            [color]="color"
+            [indeterminate]="selection.hasValue() && !isAllSelected()"
+          >
+          </mat-checkbox>
+        </th>
+        <td mat-cell *matCellDef="let row">
+          <mat-checkbox
+            (click)="$event.stopPropagation()"
+            (change)="$event ? selection.toggle(row) : null"
+            [color]="color"
+            [checked]="selection.isSelected(row)"
+          >
+          </mat-checkbox>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef>Email</th>
+        <td mat-cell *matCellDef="let row">{{ row.mail }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let row">{{ row.fname }} {{ row.lname }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="sl">
+        <th mat-header-cell *matHeaderCellDef>SL</th>
+        <td mat-cell *matCellDef="let row">{{ row.sl }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="sbu">
+        <th mat-header-cell *matHeaderCellDef>SBU</th>
+        <td mat-cell *matCellDef="let row">{{ row.sbu }}</td>
+      </ng-container>
+
+      <div class="actbutton">
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef>Delete</th>
+          <td mat-cell *matCellDef="let row">
+            <button mat-icon-button color="warn" (click)="onDelete(row.mail)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+      </div>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">
+          No data matching the filter "{{ input.value }}"
+        </td>
+      </tr>
+    </table>
+    <mat-paginator
+      [pageSizeOptions]="[5, 10, 25, 100]"
+      aria-label="Select page of users"
+    ></mat-paginator>
+  </div>
+</div>

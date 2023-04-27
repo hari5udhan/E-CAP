@@ -1,0 +1,89 @@
+<mat-toolbar>
+  <button
+    mat-icon-button
+    class="example-icon favorite-icon"
+    aria-label="Example icon-button with add icon"
+  >
+    <mat-icon (click)="drawer.toggle()">menu</mat-icon>
+  </button>
+
+  <span style="color: white; font-family: 'Itim', cursive; font-size: 1.5em"
+    ><img src="assets/icons/icons.png" alt="" />E-CAP</span
+  >
+  <span class="example-spacer"></span>
+  <button
+    mat-icon-button
+    class="example-icon favorite-icon"
+    aria-label="Example icon-button with add icon"
+  >
+    <mat-icon (click)="ontraining()">remove_from_queue</mat-icon>
+  </button>
+  <button
+    mat-icon-button
+    class="example-icon favorite-icon"
+    aria-label="Example icon-button with add icon"
+  >
+    <mat-icon (click)="openForm()">add_box</mat-icon>
+  </button>
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with exit icon"
+  >
+    <mat-icon (click)="signOut()">exit_to_app</mat-icon>
+  </button>
+</mat-toolbar>
+<!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<mat-drawer-container class="example-container">
+  <mat-drawer #drawer mode="side" class="side-nav" style="width: 300px">
+    <div class="card">
+      <br />
+      <img src="assets/team.png" alt="" width="100px" />
+      <!-- <h1>{{fname}}</h1> -->
+      <p class="title">{{ fname }} {{ lname }}</p>
+      <p style="font-size: 16px">{{ email }}</p>
+      <div style="margin: 10px 0"></div>
+    </div>
+    <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <div class="side-container">
+      <ul style="list-style: none">
+        <li style="padding-left: 40px; padding-bottom: 10px">
+          <a routerLink="/land"><mat-icon class="icon">home</mat-icon> Home</a>
+        </li>
+
+        <li style="padding-left: 40px; padding-bottom: 10px">
+          <a href="/view"
+            ><mat-icon class="icon"> insert_drive_file</mat-icon>
+            Certificates</a
+          >
+        </li>
+        <!-- <li style="padding-left: 40px; padding-bottom: 10px">
+          <a href="/profile"
+            ><mat-icon class="icon">account_box</mat-icon> Profile</a
+          >
+        </li> -->
+
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <li>--------------------------------</li>
+      </ul>
+      <a style="padding-left: 40px" href="/about">About</a>
+    </div>
+  </mat-drawer>
+  <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+  <mat-drawer-content class="main-content">
+    <app-home-page></app-home-page>
+  </mat-drawer-content>
+</mat-drawer-container>

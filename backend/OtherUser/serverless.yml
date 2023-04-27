@@ -1,0 +1,376 @@
+service: Adminbackend
+frameworkVersion: "3"
+
+plugins:
+  - serverless-iam-roles-per-function
+  - serverless-offline
+
+custom:
+  allowedHeaders:
+    - Accept
+    - Content-Type
+    - appUserName
+    - Access-Control-Allow-Origin
+    - Access-Control-Allow-Methods
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: ap-south-1
+  stage: test
+
+functions:
+  # #user request for deletion
+  # request:
+  #   handler: api/deleteRequested.certificate
+  #   iamRoleStatements:
+  #     - Effect: "Allow"
+  #       Action:
+  #         - "dynamodb:PutItem"
+  #       Resource: "arn:aws:dynamodb:ap-south-1:228213955986:table/deleteRequestedTable"
+  #     - Effect: "Allow"
+  #       Action:
+  #         - "ses:SendEmail"
+  #         - "ses:SendRawEmail"
+  #       Resource: "*"
+  #   events:
+  #     - http:
+  #         method: post
+  #         path: requests
+  #         cors:
+  #           origin: "*"
+  #           headers: ${self:custom.allowedHeaders}
+
+  # #delete which deletes both certificates in both tables
+  # delete:
+  #   handler: api/AdminTasks/approveDeleteReq.certificate
+  #   iamRoleStatements:
+  #     - Effect: "Allow"
+  #       Action:
+  #         - "dynamodb:BatchWriteItem"
+  #       Resource: "arn:aws:dynamodb:ap-south-1:228213955986:table/*"
+  #     - Effect: "Allow"
+  #       Action:
+  #         - "ses:SendEmail"
+  #         - "ses:SendRawEmail"
+  #       Resource: "*"
+  #   events:
+  #     - http:
+  #         method: delete
+  #         path: requests/{certificateId}
+  #         cors:
+  #           origin: "*"
+  #           headers: ${self:custom.allowedHeaders}
+
+  # #Get All Delete Requests
+  # getRequests:
+  #   handler: api/getRequests.certificate
+  #   iamRoleStatements:
+  #     - Effect: "Allow"
+  #       Action:
+  #         - "dynamodb:Scan"
+  #       Resource: "arn:aws:dynamodb:ap-south-1:228213955986:table/deleteRequestedTable"
+  #   events:
+  #     - http:
+  #         method: get
+  #         path: requests
+  #         cors:
+  #           origin: "*"
+  #           headers: ${self:custom.allowedHeaders}
+
+  # #Get All Certificates
+  # getAllCertificate:
+  #   handler: api/getCertificates.certificate
+  #   iamRoleStatements:
+  #     - Effect: "Allow"
+  #       Action:
+  #         - "dynamodb:Scan"
+  #       Resource: "arn:aws:dynamodb:ap-south-1:228213955986:table/certificateTable"
+  #   events:
+  #     - http:
+  #         method: get
+  #         path: certificateList
+  #         cors:
+  #           origin: "*"
+  #           headers: ${self:custom.allowedHeaders}
+
+  # #Get All Users
+  # getAllUsers:
+  #   handler: api/getUsers.requested
+  #   iamRoleStatements:
+  #     - Effect: "Allow"
+  #       Action:
+  #         - "cognito-idp:ListUsers"
+  #       Resource: "arn:aws:cognito-idp:ap-south-1:228213955986:userpool/ap-south-1_8b1hVzlL2"
+  #   events:
+  #     - http:
+  #         method: get
+  #         path: users
+  #         cors:
+  #           origin: "*"
+  #           headers: ${self:custom.allowedHeaders}
+
+  # #Get Training Requests
+  # getTrainingRequests:
+  #   handler: api/notused/getTrainingReq.training
+  #   iamRoleStatements:
+  #     - Effect: "Allow"
+  #       Action:
+  #         - "dynamodb:Scan"
+  #       Resource: "arn:aws:dynamodb:ap-south-1:228213955986:table/trainingTable"
+  #   events:
+  #     - http:
+  #         method: get
+  #         path: trainingRequests
+  #         cors:
+  #           origin: "*"
+  #           headers: ${self:custom.allowedHeaders}
+
+  # #Get new Training Requests
+  # getTrainRequests:
+  #   handler: api/getNewTrainReq.training
+  #   iamRoleStatements:
+  #     - Effect: "Allow"
+  #       Action:
+  #         - "dynamodb:Scan"
+  #       Resource: "arn:aws:dynamodb:ap-south-1:228213955986:table/trainingDownload"
+  #   events:
+  #     - http:
+  #         method: get
+  #         path: newTrainingRequests
+  #         cors:
+  #           origin: "*"
+  #           headers: ${self:custom.allowedHeaders}
+
+  # # #Download Training Requests
+  # downloadTrainingRequests:
+  #   handler: api/AdminTasks/download.training
+  #   iamRoleStatements:
+  #     - Effect: "Allow"
+  #       Action:
+  #         - "dynamodb:*"
+  #       Resource: "arn:aws:dynamodb:ap-south-1:228213955986:table/trainingDownload"
+  #   events:
+  #     - http:
+  #         method: get
+  #         path: download
+  #         cors:
+  #           origin: "*"
+  #           headers: ${self:custom.allowedHeaders}
+
+  #create employee
+  # createEmployee:
+  #   handler: api/Employee/createEmployee.employee
+  #   iamRoleStatements:
+  #     - Effect: "Allow"
+  #       Action:
+  #         - "dynamodb:PutItem"
+  #       Resource: "arn:aws:dynamodb:ap-south-1:228213955986:table/employeeTable"
+  #     - Effect: "Allow"
+  #       Action:
+  #         - "dynamodb:DeleteItem"
+  #       Resource: "arn:aws:dynamodb:ap-south-1:228213955986:table/otherUsers"
+  #     - Effect: "Allow"
+  #       Action:
+  #         - "ses:*"
+  #       Resource: "*"
+  #   events:
+  #     - http:
+  #         method: post
+  #         path: employeeData
+  #         cors:
+  #           origin: "*"
+  #           headers: ${self:custom.allowedHeaders}
+
+  #update employee
+  # updateEmployee:
+  #   handler: api/Employee/updateEmployee.employee
+  #   iamRoleStatements:
+  #     - Effect: "Allow"
+  #       Action:
+  #         - "dynamodb:UpdateItem"
+  #       Resource: "arn:aws:dynamodb:ap-south-1:228213955986:table/employeeTable"
+  #   events:
+  #     - http:
+  #         method: post
+  #         path: employeeData/{employeeMail}
+  #         cors:
+  #           origin: "*"
+  #           headers: ${self:custom.allowedHeaders}
+
+  #delete Employee
+  # deleteEmployee:
+  #   handler: api/Employee/delete.employee
+  #   iamRoleStatements:
+  #     - Effect: "Allow"
+  #       Action:
+  #         - "dynamodb:DeleteItem"
+  #       Resource: "arn:aws:dynamodb:ap-south-1:228213955986:table/employeeTable"
+  #     - Effect: "Allow"
+  #       Action:
+  #         - "cognito-idp:*"
+  #       Resource: "*"
+  #   events:
+  #     - http:
+  #         method: delete
+  #         path: employeeData/{employeeMail}
+  #         #  authorizer: aws_iam
+  #         cors:
+  #           origin: "*"
+  #           headers: ${self:custom.allowedHeaders}
+
+  #Get employee Data
+  # getEmployee:
+  #   handler: api/Employee/getEmployee.employee
+  #   iamRoleStatements:
+  #     - Effect: "Allow"
+  #       Action:
+  #         - "dynamodb:Scan"
+  #       Resource: "arn:aws:dynamodb:ap-south-1:228213955986:table/employeeTable"
+  #   events:
+  #     - http:
+  #         method: get
+  #         path: employeeData
+  #         cors:
+  #           origin: "*"
+  #           headers: ${self:custom.allowedHeaders}
+
+  #Other users table
+  createUser:
+    handler: api/Users/create.user
+    iamRoleStatements:
+      - Effect: "Allow"
+        Action:
+          - "dynamodb:PutItem"
+        Resource: "arn:aws:dynamodb:ap-south-1:138373247614:table/otherUsers"
+      - Effect: "Allow"
+        Action:
+          - "ses:*"
+        Resource: "*"
+    events:
+      - http:
+          method: post
+          path: userData
+          cors:
+            origin: "*"
+            headers: ${self:custom.allowedHeaders}
+
+  #Delete user
+  deleteUser:
+    handler: api/Users/delete.user
+    iamRoleStatements:
+      - Effect: "Allow"
+        Action:
+          - "dynamodb:DeleteItem"
+        Resource: "arn:aws:dynamodb:ap-south-1:138373247614:table/otherUsers"
+    events:
+      - http:
+          method: delete
+          path: userData/{userMail}
+          #  authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers: ${self:custom.allowedHeaders}
+
+  # get user
+  User:
+    handler: api/Users/getNewEmp.user
+    iamRoleStatements:
+      - Effect: "Allow"
+        Action:
+          - "dynamodb:Scan"
+        Resource: "arn:aws:dynamodb:ap-south-1:138373247614:table/otherUsers"
+    events:
+      - http:
+          method: get
+          path: userData
+          #  authorizer: aws_iam
+          cors:
+            origin: "*"
+#   #uploads training data to RDS database
+#   upload-trainingData:
+#     handler: api/AdminTasks/upload.file
+#     iamRoleStatements:
+#       - Effect: "Allow"
+#         Action:
+#           - "ses:*"
+#         Resource: "*"
+#     events:
+#       - http:
+#           method: post
+#           path: trainingRequests/upload
+#           cors:
+#             origin: "*"
+
+#   #get training data from RDS database
+#   gettrainingData:
+#     handler: api/AdminTasks/getRDS.file
+#     events:
+#       - http:
+#           method: get
+#           path: trainingRequests/rds
+#           cors:
+#             origin: "*"
+#             headers: ${self:custom.allowedHeaders}
+
+#   #get training data from RDS database
+#   trainingDataInRange:
+#     handler: api/AdminTasks/getDate.file
+#     events:
+#       - http:
+#           method: post
+#           path: trainingRequests/rds
+#           cors:
+#             origin: "*"
+#             headers: ${self:custom.allowedHeaders}
+
+#   #Delete Cognito User
+#   cognitoUserDelete:
+#     handler: api/AdminTasks/deleteCognito.user
+#     iamRoleStatements:
+#       - Effect: "Allow"
+#         Action:
+#           - "cognito-idp:*"
+#         Resource: "*"
+#     events:
+#       - http:
+#           method: get
+#           path: cognitoUser
+#           cors:
+#             origin: "*"
+#             headers: ${self:custom.allowedHeaders}
+
+#   # Create Request for training
+#   approveTraining:
+#     handler: api/AdminTasks/approveTrainReq.training
+#     iamRoleStatements:
+#       - Effect: "Allow"
+#         Action:
+#           - "dynamodb:*"
+#         Resource: "arn:aws:dynamodb:ap-south-1:228213955986:table/*"
+#       - Effect: "Allow"
+#         Action:
+#           - "ses:SendEmail"
+#           - "ses:SendRawEmail"
+#         Resource: "*"
+#     events:
+#       - http:
+#           method: post
+#           path: trainingList
+#           cors:
+#             origin: "*"
+#             headers: ${self:custom.allowedHeaders}
+
+# resources:
+#   Resources:
+#     certificateTable:
+#       Type: AWS::DynamoDB::Table
+#       Properties:
+#         TableName: deleteRequestedTable
+#         BillingMode: PAY_PER_REQUEST
+#         AttributeDefinitions:
+#           - AttributeName: certificateId
+#             AttributeType: S
+#         KeySchema:
+#           - AttributeName: certificateId
+#             KeyType: HASH

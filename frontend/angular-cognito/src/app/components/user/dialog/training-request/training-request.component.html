@@ -1,0 +1,59 @@
+<div class="formContainer">
+    <h2>Training Request Form</h2>
+    <form [formGroup]="trainingForm">
+    <div class="mainForm"> <mat-form-field appearance="outline">
+        <mat-label>Certification Provider</mat-label>
+        <mat-select formControlName="certificationProvider" >
+            <mat-option value="Amazon Web Service(AWS)"  (onSelectionChange)="onOther('aws')">Amazon Web Service</mat-option>
+            <mat-option value="Google Cloud Platform(GCP)" (onSelectionChange)="onOther('gcp')">Google Cloud Platform</mat-option>
+            <mat-option value="Microsoft Azure"  (onSelectionChange)="onOther('azure')">Microsoft Azure</mat-option>
+            <mat-option (onSelectionChange)="onOther('Other')" value="Other">Other</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline" >
+        <mat-label>Certification Level</mat-label>
+        <mat-select formControlName="certificationLevel" *ngIf="isLevel">
+            <mat-option value="Foundational" (onSelectionChange)="onSelect('f')">Foundational</mat-option>
+            <mat-option value="Associate" (onSelectionChange)="onSelect('a')">Associate</mat-option>
+            <mat-option value="Professional" (onSelectionChange)="onSelect('p')">Professional</mat-option>
+        </mat-select>
+        <input type="text" name="certificationLevel" placeholder="Level of Certification" matInput formControlName="certificationLevel" *ngIf="isOther">
+    </mat-form-field>
+    <mat-form-field appearance="outline" *ngIf="isList">
+        <mat-label>Certification Name</mat-label>
+        <input type="text" name="certificationName" placeholder="Name of Certification" matInput formControlName="certificationName">
+    </mat-form-field>
+    <mat-form-field appearance="outline" *ngIf="isLevel">
+        <mat-label>Certification Name</mat-label>
+        <mat-select formControlName="certificationName">
+            <mat-option *ngFor="let certificate of Certificates" value={{certificate}}>
+                {{certificate}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+   </div>
+   
+    <div class="dateContainer">
+        <mat-form-field appearance="outline">
+            <mat-label>Training Request Date</mat-label>
+            <input matInput [matDatepicker]="picker1" formControlName="dateFrom" [min]="minDate" [max]="maxDate">
+            <mat-hint>From</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker1" ></mat-datepicker-toggle>
+            <mat-datepicker #picker1 startView="month" ></mat-datepicker>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label></mat-label>
+            <input matInput [matDatepicker]="picker"  formControlName="dateTo" [min]="minDate" [max]="maxDate">
+            <mat-hint>To</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker ></mat-datepicker>
+          </mat-form-field>
+    </div>
+  
+
+    </form>
+    <button mat-fab color="warn" mat-dialog-close>Close
+    </button>
+      <button mat-fab color="primary" (click)="onSubmit()">Submit</button>
+</div>
+

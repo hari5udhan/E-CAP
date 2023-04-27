@@ -1,0 +1,55 @@
+.container{
+    align-items: center;
+    margin-left: 120px;
+    padding-bottom: 20px;
+}
+
+.card-certificate {
+      position: relative;
+      left: 9.5%;
+      height: 215px;
+      width: 400px;
+      border: 1px solid #ccc;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      padding: 2px;
+      animation: fadeIn 0.5s;
+      border-radius: 7px;
+      /* background-color: white; */
+
+    }
+    
+    .card.expired {
+      background-color: grey;
+    }
+
+    .logo {
+      width: 80px;
+      height: 80px;
+      float: right;
+      position: relative;
+      top: 133px;
+    }
+    .close-btn {
+      float: right;
+      cursor: pointer;
+      color: red;
+      position: relative;
+      left: 16.5%;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    .card-body{
+      font-family: arial;
+
+    }
+
+    .card-body p {
+      font-size: 1em;
+      text-align: justify;
+      text-decoration: none;
+      padding-left: 5px;
+      margin: 0;
+    }

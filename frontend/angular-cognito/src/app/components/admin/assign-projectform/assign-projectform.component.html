@@ -1,0 +1,38 @@
+<div class="container">
+    <h6>Project Name <p>{{projectName}}</p></h6>
+    <h6>Description <p>{{des}}</p></h6>
+    <h6>Required Skills <p>{{Reqskill}}</p></h6>
+    <div class="row row-cols-2">
+        <div class="col">
+            <h6>Project Start Date <p>{{start | date}}</p></h6>
+        </div>
+        <div class="col">
+            <h6>Project End Date <p>{{end | date}}</p></h6>
+        </div>
+    </div>
+    <form [formGroup]="userAssignForm">
+        <mat-form-field appearance="outline">
+            <mat-label>User Profiles</mat-label>
+            <mat-select formControlName="user">
+                <mat-option *ngFor="let user of suggestedUser" value={{user}} (onSelectionChange)="onChange(user)">
+                    Name:{{user.name}} Percentage: {{user.percentage}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </form>
+   
+    <button mat-fab color="warn" mat-dialog-close>Close
+    </button>
+      <button mat-fab color="primary" (click)="onSubmit()">Submit</button>
+</div>
+
+<div class="user-profile" *ngIf="selectedRow">
+   
+        <h5 style="color: gray; font-size: 1rem;">Name: {{selectedRow.name}}</h5>
+        <h5  style="color: gray; font-size: 1rem;">Mail: {{selectedRow.mail}}</h5>
+        <h5 style="color: gray; font-size: 1rem;">SL: {{selectedRow.sl}}</h5>
+        <h5  style="color: gray; font-size: 1rem;">SBU: {{selectedRow.sbu}}</h5>
+        <h5  style="color: gray; font-size: 1rem;">Role: {{selectedRow.role}}</h5>
+        <h5  style="font-size: 1rem;">Matched Percentage: {{selectedRow.percentage}}</h5>
+    
+</div>

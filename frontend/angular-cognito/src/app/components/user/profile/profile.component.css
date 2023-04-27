@@ -1,0 +1,109 @@
+.profile-section{
+  width: 72%;
+  position: relative;
+  top: 1%;
+  left: 25%;
+  /* border: 1px gray solid; */
+  background-color: whitesmoke;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.profile-section h6{
+  color: gray;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+}
+.profile-section h5{
+  font-family: 'Open Sans', sans-serif;
+
+}
+
+.profile-section a{
+  position: relative;
+  top: 2%;
+  left: 95%;
+  color: black;
+  cursor: pointer;
+}
+
+.img-thumb{
+  height: 4%;
+  border-radius: 100%;
+}
+
+.side-container{
+  position: relative;
+  top: -17%;
+  align-items: center; 
+  border: 1px gray;
+  margin-left: 5px;
+  margin-top: 5px;
+  margin-right: 2%;
+  height: 70%;
+  width: 23%;
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+}
+
+.menu{
+  position: relative;
+  top: 25%;
+  text-align: center;
+  font-size: 0.8rem;
+}
+.menu h5{
+  position: relative;
+  left: 4%;
+  padding: 10px;
+  width: 90%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.menu h5:hover{
+  color: white;
+  background-color: black;
+  cursor: pointer;
+}
+
+.certification-section{
+  position: relative;
+  left: 25%;
+  top: -65%;
+  background-color: whitesmoke;
+  height: 27%;
+  width: 27%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.course-section{
+  align-items: center;
+  position: relative;
+  top: -92%;
+  left: 53%;
+  width: 44%;
+  height: 27%;
+  background-color: whitesmoke;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.project-section{
+  align-items: center;
+  position: relative;
+  left: 53%;
+  top: -89%;
+  width: 44%;
+  height: 27%;
+  background-color: whitesmoke;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.skill-section{
+  position: relative;
+  left: 25%;
+  top: -115.5%;
+  background-color: whitesmoke;
+  height: 16%;
+  width: 27%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

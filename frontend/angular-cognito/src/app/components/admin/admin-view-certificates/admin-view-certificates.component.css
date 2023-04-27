@@ -1,0 +1,46 @@
+/* mat-table {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}*/
+mat-paginator {
+   width: 100%;
+} 
+
+.container{
+    align-items: center;
+    margin-left: 100px;
+}
+
+.mat-toolbar{
+    background-color: black;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+   
+  }
+
+  .nav-link {
+    color: whitesmoke;
+    font-size: 0.7em;
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  .nav-link:hover{
+    color: #80d4ff;
+  }
+.example-icon{
+    background-color: black;
+    color: whitesmoke;
+    margin-right: 10px;
+}
+
+.example-icon:hover{
+    background-color: whitesmoke;
+    color: black;
+}
+
+.example-container{
+    height: 100%;
+}

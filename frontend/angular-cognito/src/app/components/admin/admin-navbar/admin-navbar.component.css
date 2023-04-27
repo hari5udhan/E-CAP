@@ -1,0 +1,71 @@
+.mat-toolbar{
+    background-color: black;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+   
+  }
+
+  .icon{
+    padding-right: 10px;
+    position: relative;
+    top: 3px;
+  }
+
+.example-icon{
+    background-color: black;
+    color: whitesmoke;
+    margin-right: 10px;
+}
+
+.example-icon:hover{
+    background-color: whitesmoke;
+    color: black;
+}
+
+.example-container{
+    height: 100%;
+}
+
+.side-container{
+  text-align: start;
+  padding: 0;
+  margin: 0;
+ 
+}
+
+.nav-link {
+  color: whitesmoke;
+  font-size: 0.7em;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.nav-link:hover{
+  color: #80d4ff;
+}
+
+
+.card {
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+  }
+  
+  .title {
+    color: grey;
+    font-size: 22px;
+  }
+
+  a {
+    text-decoration: none;
+    font-size: 1.5em;
+    color: black;
+  }
+  
+  .main-content{
+    width: 100%;
+
+  }

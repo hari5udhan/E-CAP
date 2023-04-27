@@ -1,0 +1,81 @@
+.container{
+    align-items: center;
+    margin-left: 120px;
+}
+.mat-toolbar{
+    background-color: black;
+}
+.nav-link {
+    color: whitesmoke;
+    font-size: 0.7em;
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  .nav-link:hover{
+    color: #80d4ff;
+  }
+.example-spacer {
+    flex: 1 1 auto;
+   
+  }
+.download-icon{
+    background-color: transparent;
+    color: #262626;
+    border-radius: 90%;
+    border: 1px white;
+    height: 15px;
+    width: 15px;
+    position: relative;
+    bottom: 40px;
+    left: 780px;
+}
+
+.download-icon:hover{
+color: gray;
+}
+
+
+.example-icon{
+    background-color: black;
+    color: whitesmoke;
+    margin-right: 10px;
+}
+
+.example-icon:hover{
+    background-color: whitesmoke;
+    color: black;
+}
+
+.example-container{
+    height: 100%;
+}
+
+.button{
+    width: 100px;
+    height: 40px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    background-color: black;
+    color: whitesmoke;
+    border-radius: 8px;
+    margin-left: 10px;
+}
+
+.button:hover{
+    background-color: whitesmoke;
+    color: black;
+}
+
+
+.dateInput>input{
+    height: 46px;
+    padding: 0 16px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    outline: 0;
+    margin-bottom: 20px;
+}
+
+.dateInput>input:focus{
+    border-color: black;
+}

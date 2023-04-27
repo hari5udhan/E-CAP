@@ -1,0 +1,69 @@
+<div class="container">
+    <form [formGroup]="projectForm">
+        <div class="mainForm">
+         <h4 style="text-align: center; padding-top: 2%;">Add New Project</h4>
+         <mat-form-field appearance="outline">
+             <mat-label>Project Name</mat-label>
+             <input type="text" name="name" placeholder="Name of Project" matInput formControlName="name">
+         </mat-form-field>
+         <mat-form-field appearance="outline">
+             <mat-label>Description</mat-label>
+             <input type="text" name="des" placeholder="Description" matInput formControlName="des" style="height: 125px;">
+         </mat-form-field>
+         <div class="dateContainer">
+            <form >
+                <mat-form-field class="example-full-width" appearance="outline" style="width: 230px;">
+                  <mat-label>Skills</mat-label>
+                  <input type="text"
+                         placeholder="Select"
+                         aria-label="Skill"
+                         matInput
+                         [formControl]="myControl"
+                         [matAutocomplete]="auto">
+                  <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="onSelect($event)">
+                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                      {{option}}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+              </form>
+              <mat-form-field class="example-chip-list" appearance="outline" style="width: 400px; height: auto; ">
+                <mat-label>Courses</mat-label>
+                <mat-chip-grid #chipGrid aria-label="Course selection">
+                  <mat-chip-row *ngFor="let course of coursesList" (removed)="remove(course)">
+                    {{course}}
+                    <!-- <button matChipRemove [attr.aria-label]="'remove ' + course"> -->
+                        <mat-icon matChipRemove [attr.aria-label]="'remove ' + course">cancel</mat-icon>
+                        <!-- </button> -->
+                  </mat-chip-row>
+                </mat-chip-grid>
+                <input placeholder="New Course..." #courseInput [formControl]="courseForm"
+                  [matChipInputFor]="chipGrid" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                  (matChipInputTokenEnd)="add($event)"/>
+              </mat-form-field>
+         </div>
+         <mat-form-field appearance="outline" style="width: 300px;">
+            <mat-label>Experience Required</mat-label>
+            <input type="text" name="exp" placeholder="Number of years Experience" matInput formControlName="exp">
+        </mat-form-field>
+         <h5 style="padding-left: 16px;">Project Date</h5>
+         <div class="dateContainer">
+             <mat-form-field appearance="outline" style="width: 250px;">
+                 <mat-label>Start</mat-label>
+                 <input  name="start" placeholder="Start" matInput [matDatepicker]="picker1" formControlName="start" [min]="dateStart" [max]="dateEnd1">
+                 <mat-datepicker-toggle matIconSuffix [for]="picker1" ></mat-datepicker-toggle>
+                 <mat-datepicker #picker1></mat-datepicker>
+             </mat-form-field>
+             <mat-form-field appearance="outline" style="width: 250px;">
+                 <mat-label>End</mat-label>
+                 <input  name="end" placeholder="End" matInput formControlName="end" [matDatepicker]="picker" [min]="dateStart" [max]="dateEnd">
+                 <mat-datepicker-toggle matIconSuffix [for]="picker" ></mat-datepicker-toggle>
+                 <mat-datepicker #picker></mat-datepicker>
+             </mat-form-field>
+         </div>
+        </div>
+     </form>
+     <button mat-fab color="warn" mat-dialog-close>Close
+    </button>
+      <button mat-fab color="primary" (click)="onSubmit()">Submit</button>
+</div>

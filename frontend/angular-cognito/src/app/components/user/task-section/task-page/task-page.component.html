@@ -1,0 +1,31 @@
+<div class="timer">
+  <h5>{{ formatTime(timeLeft) }}</h5>
+</div>
+<div class="container">
+  <ol>
+    <li *ngFor="let question of data; let i = index">
+      <h3>{{ question.question }}</h3>
+      <div *ngFor="let option of question.options; let j = index">
+        <label>
+          <input
+            type="radio"
+            name="{{ i }}"
+            value="{{ option }}"
+            [(ngModel)]="selectedAnswers[i]"
+          />
+          {{ option }}
+        </label>
+      </div>
+    </li>
+  </ol>
+  <br />
+  <br />
+  <button
+    (click)="onCancel()"
+    style="background-color: #ff6666; border-color: #ff6666; margin-right: 45%"
+  >
+    Cancel
+  </button>
+
+  <button (click)="checkAnswers()">Submit</button>
+</div>

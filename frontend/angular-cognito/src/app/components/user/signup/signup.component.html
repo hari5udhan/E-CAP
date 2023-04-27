@@ -1,0 +1,67 @@
+<div class="container" *ngIf="user">
+  <div class="row w-100 vh-100 justify-content-centre align-items-centre">
+    <div *ngIf="!isConfirm">
+    <div class="auth-box">
+        <div class="header">
+          <h2>Sign Up</h2>
+          <h4>Please fill your details</h4>
+        </div>
+        <div class="form"  style="font-family: 'Poppins', sans-serif;">
+            
+            <input type="text" matInput name="fname" placeholder="First Name"  [(ngModel)]="user.fname">
+            <input type="text" matInput name="fname" placeholder="Last Name"  [(ngModel)]="user.lname">
+
+            <input type="email" matInput name="email" placeholder="Email"  [(ngModel)]="user.email">
+
+            
+            <!-- <div class="dateContainer" >
+              <mat-form-field appearance="outline" >
+                  <mat-label>SBU</mat-label>
+                  <mat-select [(ngModel)]="user.sbu" *ngIf="isSBUoptions" >
+                      <mat-option value="Banking">Banking</mat-option>
+                      <mat-option value="Finance">Finance</mat-option>
+                      <mat-option value="Insurance">Insurance</mat-option>
+                      <mat-option value="Health Care">Health Care</mat-option>
+                      <mat-option (onSelectionChange)="sbuOther()">Other</mat-option>
+                  </mat-select>
+                  <input *ngIf="isInput" type="text" name="sbu"  matInput [(ngModel)]="user.sbu" >
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                  <mat-label>SL</mat-label>
+                  <mat-select [(ngModel)]="user.sl" *ngIf="isSLoptions">
+                      <mat-option value="Cloud">Cloud</mat-option>
+                      <mat-option value="Digital">Data</mat-option>
+                      <mat-option value="Testing">Testing</mat-option>
+                      <mat-option value="UX">UX</mat-option>
+                      <mat-option (onSelectionChange)="slOther()">Other</mat-option>
+                  </mat-select>
+                  <input *ngIf="isInput" type="text" name="sl"  matInput [(ngModel)]="user.sl">
+              </mat-form-field>
+          </div>
+            -->
+
+
+            <input [type]="user.showPassword ? 'text' : 'password'" name="assword" placeholder="Password" [(ngModel)]="user.password" >
+            <div>
+              <input type="checkbox" [checked]="user.showPassword" (change)="user.showPassword =!user.showPassword">
+              Show Password
+            </div>         
+    
+          <p>Already a user? <a href="/login">Login</a></p>
+          <button mat-button color="primary" (click)="addUser()" (keyup.enter)="addUser()">Signup</button>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="isConfirm" class="verification">
+      <div class="header">
+        <h2 style="font-size: 1.2em;">Enter the verification code</h2>
+        <h4>Please check your mail. <h4 style="color: lightcoral;">A verification code has been sented to {{user.email}}</h4></h4>
+      </div>
+      <div class="form">
+        <input type="text" name="verificationCode" placeholder="Enter verification code" [(ngModel)]="user.code">
+        <button (click)="confirmUser()">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>

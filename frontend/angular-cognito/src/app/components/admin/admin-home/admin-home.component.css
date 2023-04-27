@@ -1,0 +1,110 @@
+
+* {
+  box-sizing: border-box;
+}
+
+.page-contain {
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: start;
+  font-family: 'Open Sans', sans-serif;
+}
+.badge{
+  position: relative;
+  left: 25px;
+  bottom: 30px;
+}
+
+
+
+.data-card {
+  display: flex;
+  flex-direction: column;
+  max-width: 15.75em;
+  min-height: 5.75em;
+  overflow: hidden;
+  border-radius: .5em;
+  text-decoration: none;
+  background: white;
+  margin: 1em;
+  padding: 2.75em 2.5em;
+  box-shadow: 0 1.5em 2.5em -.5em rgba(#000000, .1);
+  transition: transform .45s ease, background .45s ease;
+}
+
+.data-card h3 {
+    color: #2E3C40;
+    font-size: 1.5em;
+    font-weight: 600;
+    line-height: 1;
+    padding-bottom: .5em;
+    padding-left: 1em;
+    border-bottom: 2px solid black;
+    transition: color .45s ease, border .45s ease;
+  }
+
+.data-card h4 {
+  margin-top: 10px;
+    color: #627084;
+    text-transform: uppercase;
+    font-size: 1.125em;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.1em;
+    transition: color .45s ease;
+  }
+  
+.container{
+  align-items: center;
+  padding-top: 10px;
+  position: relative;
+  top: -220%;
+}
+
+.mat-column-email {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 28% !important;
+  width: 28% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.mat-column-status{
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 28% !important;
+  width: 15% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+   hyphens: auto;
+
+}
+
+table{
+  width: auto;
+  table-layout: fixed;
+}
+
+.viewUser{
+  padding-left: 850px;
+  color: gray;
+}
+
+.graph{
+  height: 700px;
+  width: 580px;
+  position: relative;
+  top: -180%;
+  left: 58%;
+}

@@ -1,0 +1,98 @@
+<app-navbar></app-navbar>
+<div class="profile-section">
+  <a  (click)="onEditProfileDetails()" style="padding-top: 10px;"><mat-icon>edit</mat-icon></a>
+  <div class="row row-cols-2" style="align-items: center; padding-top: 0px; padding-left: 4%;">
+      <img src="assets/team.png" alt="" class="col-6 col-md-4" style="border-radius: 100%; margin-left: 2%; width: 20%;">
+      <div class="row">
+        <h5 style="font-size: 1.5rem;">{{fname}} {{lname}}</h5>
+        <div class="row">
+          <div class="row">
+            <h6> Mail: {{userMail}} </h6>
+          </div>
+          <div class="col">
+            <h6>SBU: {{sbu}}</h6> 
+          </div>
+          <div class="col" style="position: relative; left: -14%;">
+            <h6>SL: {{sl}}</h6> 
+          </div>
+        </div>
+      
+        <div class="row">
+          <h6> Role: {{role}} </h6>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="stats-bar">
+
+</div>
+
+<div class="side-container">
+<div class="menu">
+  <h5 (click)="onSkillEdit()">Skills</h5>
+  <a href="/view" style="text-decoration: none; color: black;"><h5>Certifications</h5></a>
+  <h5>Projects</h5>
+  <h5>Menu</h5>
+  <h5>Menu</h5>
+</div>  
+</div>
+
+<div class="certification-section">
+<h5 style="padding-left: 2.5%; padding-top: 2%;">Certification</h5>
+<div *ngFor="let certificate of addedCertificates" style="font-size: 1rem; align-items: center; padding-left: 10px; margin: 5px;">
+    {{ certificate }}
+  </div>
+</div>
+
+<div class="course-section">
+  <div class="row row-cols-2">
+    <div class="col">
+      <h5 style="padding-left: 5%; padding-top: 2%;">Completed skill</h5>
+      <h6 *ngFor="let skills of userCourse" style="font-size: 1rem; text-align: start; color: gray; padding-left: 45px;">
+        {{ skills }}
+      </h6>
+    </div>
+    <div class="col">
+      <h5 style="padding-left: 2.5%; padding-top: 2%;">Skill Gap</h5>
+      <div *ngFor="let course of uncompletedCourses" style="font-size: 1rem; align-items: center; padding-left: 10px; margin: 5px; color: gray;">
+        {{ course }}
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="project-section">
+  <h5 style="padding-left: 2.5%; padding-top: 2%;">Projects</h5>
+  <div class="row row-cols-2">
+    <div class="col">
+      <h5 style="padding-left: 5%; padding-top: 2%;">Ongoing</h5>
+      <div *ngFor="let projects of uncompletedProjects" style="font-size: 1rem; align-items: center; padding-left: 10px; margin: 5px; color: gray;">
+        {{ projects }}
+      </div>
+    </div>
+    <div class="col">
+      <h5 style="padding-left: 5%; padding-top: 2%;">Completed</h5>
+      <h6 *ngFor="let projects of completedProjects" style="font-size: 1rem; align-items: center; padding-left: 10px; margin: 5px; color: gray;">
+        {{ projects }}
+      </h6>
+    </div>
+  </div>
+</div>
+
+<div class="skill-section">
+  <h5 style="padding-left: 2.5%; padding-top: 2%; text-align: center;">Skill-Cl###er</h5>
+  <div class="row">
+    <div class="col">
+      <h5 style="padding-left: 5%; padding-top: 2%; font-size: 1.1rem;">Achieved</h5>
+      <h6 style="padding-left: 20px; color: gray;">{{skill}}</h6>
+    </div>
+    <div class="col">
+      <h5 style="padding-left: 5%; padding-top: 2%; font-size: 1.1rem;">Under Approval</h5>
+      <h6 style="padding-left: 50px; color: gray;">{{unapprovedSkill}}</h6>
+    </div>
+  </div>
+</div>
+
+

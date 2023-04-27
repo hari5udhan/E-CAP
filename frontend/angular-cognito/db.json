@@ -1,0 +1,23 @@
+{
+  "certificationList": [
+    {
+      "certificationProvider": "Amazon Web Service(aws)",
+      "certificationLevel": "Associate",
+      "certificationName": "aws",
+      "certificationId": "aaaaaaa",
+      "dateOfCertification": "2022-11-18T18:30:00.000Z",
+      "dateOfExpiry": "2022-11-29T18:30:00.000Z",
+      "id": 1
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

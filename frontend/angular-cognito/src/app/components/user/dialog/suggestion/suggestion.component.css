@@ -1,0 +1,9 @@
+.suggest-container{
+   height: 250px;
+   text-align: center;
+}
+
+.suggest-container h3{
+   padding-top: 70px;
+   color: #ff6666;
+}

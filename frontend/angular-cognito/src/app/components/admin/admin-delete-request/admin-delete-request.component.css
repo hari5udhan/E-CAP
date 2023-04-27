@@ -1,0 +1,27 @@
+.container{
+    align-items: center;
+    /* margin-left: 120px; */
+}
+.mat-toolbar{
+    background-color: black;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+   
+  }
+
+.example-icon{
+    background-color: black;
+    color: whitesmoke;
+    margin-right: 10px;
+}
+
+.example-icon:hover{
+    background-color: whitesmoke;
+    color: black;
+}
+
+.example-container{
+    height: 100%;
+}

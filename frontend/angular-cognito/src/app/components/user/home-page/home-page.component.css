@@ -1,0 +1,111 @@
+.container {
+  margin: 0;
+  padding: 0;
+}
+
+.user-profile {
+  margin: 3%;
+  height: 200px;
+  width: 520px;
+  background-color: whitesmoke;
+  border-radius: 7px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.user-profile a {
+  position: relative;
+  top: 2%;
+  left: 93%;
+  cursor: pointer;
+  color: #d580ff;
+}
+
+.user-profile img {
+  margin: 2%;
+  height: 80%;
+  border-radius: 100%;
+}
+
+.user-profile h6 {
+  font-family: "Poppins", sans-serif;
+}
+
+.user-profile p {
+  font-size: 0.8rem;
+}
+
+.stats-bar {
+  margin-left: 3%;
+  margin-top: 2%;
+  height: 200px;
+  width: 1200px;
+  background-color: whitesmoke;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 7px;
+}
+
+.stats-bar h6 {
+  font-size: 1.2rem;
+  margin-left: 2%;
+}
+
+.cards {
+  margin: 5% 2% 15% 8%;
+  border-radius: 7px;
+  height: 125px;
+  width: 150px;
+  background-color: white;
+  overflow: hidden;
+  transition: transform 0.45s ease, background 0.45s ease;
+  padding: 8% 5% 8% 7%;
+  box-shadow: 0 1.5em 2.5em -0.5em rgba(#000000, 0.1);
+}
+
+.cards h4 {
+  color: #627084;
+  text-transform: uppercase;
+  font-size: 1em;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.1em;
+  transition: color 0.45s ease;
+  font-family: "Poppins", sans-serif;
+}
+
+.cards h3 {
+  color: #2e3c40;
+  font-size: 1.5em;
+  font-weight: 600;
+  line-height: 1;
+  padding-bottom: 0.5em;
+  border-bottom: 2px solid #d580ff;
+  transition: color 0.45s ease, border 0.45s ease;
+  padding: 0% 0% 11% 40%;
+}
+
+.quick-actions {
+  height: 200px;
+  width: 230px;
+  background-color: whitesmoke;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 7px;
+}
+
+.actions {
+  margin: 7% 5% 0% 0%;
+}
+
+.actions p {
+  text-align: center;
+  font-weight: 400;
+  font-family: "Open Sans", sans-serif;
+}
+
+.actions img {
+  height: 138px;
+  margin: 0% 0% 0% 11%;
+}
+
+.actions:hover {
+  box-shadow: 0 4px 8px 0 #d580ff(0, 0, 0, 0.2),
+    0 6px 20px 0 #d580ff(0, 0, 0, 0.19);
+}

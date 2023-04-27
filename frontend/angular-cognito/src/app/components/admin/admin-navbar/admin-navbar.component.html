@@ -1,0 +1,57 @@
+<app-toolbar></app-toolbar>
+<!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<mat-drawer-container class="example-container">
+  <mat-drawer #drawer mode="side" class="side-nav" style="width: 300px">
+    <!-- <div class="card">
+      <br>
+      <img src="assets/team.png" alt="" width="100px" style="border-radius: 100px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);">
+      <p class="title">{{fname}} {{lname}}</p>
+      <br>
+      <p style="font-size: 16px;">{{email}}</p>
+      <div style="margin: 24px 0;">
+      </div>
+    </div> -->
+    <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <div class="side-container">
+      <ul style="list-style: none">
+        <!-- <li style=" padding-left: 30px; padding-top: 50px; padding-bottom: 10px;"><a routerLink="/home"><mat-icon class="icon">home</mat-icon>Home</a></li> -->
+        <li style="padding-left: 30px; padding-bottom: 10px; padding-top: 50px">
+          <a href="/certificates"
+            ><mat-icon class="icon">insert_drive_file</mat-icon>Certificates</a
+          >
+        </li>
+
+        <li style="padding-left: 30px; padding-bottom: 10px">
+          <a href="/trainingRequests"
+            ><mat-icon class="icon">assignment</mat-icon>Training</a
+          >
+        </li>
+        <li style="padding-left: 30px">
+          <a href="/view-user"
+            ><mat-icon class="icon">assignment_ind</mat-icon>Users</a
+          >
+        </li>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+      </ul>
+    </div>
+  </mat-drawer>
+  <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+  <mat-drawer-content class="main-content">
+    <app-admin-home></app-admin-home>
+  </mat-drawer-content>
+</mat-drawer-container>

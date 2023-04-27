@@ -1,0 +1,45 @@
+.container{
+    height: 200px;
+    border-radius: 8px;
+}
+
+.container input{
+    height: 40px;
+    width: 380px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    outline: 0;
+    margin-top: 20px;
+    position: relative;
+    bottom: 25px;
+    left: 20px;
+}
+.container input:focus{
+    border-color: black;
+}
+
+.buttons{
+    padding-left: 10px;
+    padding-top: 30px;
+}
+
+.buttons button{
+    color: white;
+    background-color: black;
+    padding: 7px 14px;
+    border-radius: 5px;
+}
+
+.buttons button:hover{
+    color: black;
+    background-color: whitesmoke;
+}
+
+.closeButton{
+    margin-right: 220px;
+}
+
+.container p{
+    padding-top: 15px;
+    padding-left: 10px;
+}

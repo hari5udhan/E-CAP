@@ -1,0 +1,73 @@
+<div class="container">
+    <mat-form-field appearance="outline" style="width: 1170px; padding-top: 20px;">
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. AWS, CCP" #input>
+  </mat-form-field>
+  <!-- <button  class="button" (click)="onDeleteAll()">Delete Selected</button> -->
+
+    <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" matSort>
+            <!-- <ng-container matColumnDef="select">
+                <th mat-header-cell *matHeaderCellDef>
+                  <mat-checkbox (change)="$event ? masterToggle() : null"
+                                [checked]="selection.hasValue() && isAllSelected()"
+                                [indeterminate]="selection.hasValue() && !isAllSelected()">
+                  </mat-checkbox>
+                </th>
+                <td mat-cell *matCellDef="let row">
+                  <mat-checkbox (click)="$event.stopPropagation()"
+                                (change)="$event ? selection.toggle(row) : null"
+                                [checked]="selection.isSelected(row)">
+                  </mat-checkbox>
+                </td>
+              </ng-container> -->
+          <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef>Email</th>
+            <td mat-cell *matCellDef="let row"> {{row.Attributes[2].Value}} </td>
+          </ng-container>
+    
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Name</th>
+            <td mat-cell *matCellDef="let row"> {{row.Attributes[0].Value}} {{row.Attributes[1].Value}} </td>      
+          </ng-container>
+    
+          <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef>Status</th>
+            <td mat-cell *matCellDef="let row"> {{row.UserStatus}} </td>
+          </ng-container>
+    
+          <ng-container matColumnDef="creation">
+            <th mat-header-cell *matHeaderCellDef>Created at</th>
+            <td mat-cell *matCellDef="let row"> {{row.UserCreateDate | date}} </td>
+          </ng-container>
+          
+    
+             <div class="actbutton"><ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef>Delete</th>
+          <td mat-cell *matCellDef="let row">
+              <button mat-icon-button color="warn" (click)="onDelete(row.Attributes[2].Value)">
+                  <mat-icon>delete</mat-icon>
+              </button>
+          </td>
+        </ng-container>
+      </div>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+    </tr>
+      </table>
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+    
+      </div>
+</div>
+
+
+  <!-- <div *ngIf="selectedRow" class="viewDetails" id="hide" (click)="onClose()"> 
+    <h4>Username: {{selectedRow.Username}}</h4>
+    <h4>Email: {{selectedRow.Attributes[4].Value}}</h4>
+    <h4>Name: {{selectedRow.Attributes[1].Value}}</h4>
+    <h4>SL: {{selectedRow.Attributes[2].Value}}</h4>
+    <h4>SBU: {{selectedRow.Attributes[3].Value}}</h4>
+
+  </div> -->

@@ -1,0 +1,67 @@
+.mat-toolbar{
+    background-color: black;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+   
+  }
+
+  .icon{
+    padding-right: 10px;
+    position: relative;
+    top: 3px;
+  }
+
+.example-icon{
+    background-color: black;
+    color: whitesmoke;
+    margin-right: 10px;
+}
+
+.example-icon:hover{
+    background-color: whitesmoke;
+    color: black;
+}
+
+.example-container{
+    height: 100%;
+}
+
+.example-form{
+  display: flex;
+  flex-direction: row;
+}
+
+.side-container{
+  text-align: start;
+  padding: 0;
+  margin: 0;
+ 
+}
+
+.nav-link {
+  color: whitesmoke;
+  font-size: 0.7em;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.nav-link:hover{
+  color: #80d4ff;
+}
+
+.button{
+    width: 100px;
+    height: 40px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    background-color: black;
+    color: whitesmoke;
+    border-radius: 8px;
+    margin-left: 10px;
+}
+
+.button:hover{
+    background-color: whitesmoke;
+    color: black;
+}

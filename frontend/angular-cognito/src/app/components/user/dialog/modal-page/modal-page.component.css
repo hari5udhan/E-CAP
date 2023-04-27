@@ -1,0 +1,23 @@
+.container {
+  margin: 5%;
+  border-radius: 7px;
+}
+
+.container h2 {
+  text-align: center;
+  padding-right: 100px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  left: 90%;
+}
+
+.x a {
+  cursor: pointer;
+  text-align: end;
+  position: relative;
+  right: 50px;
+  top: 10px;
+}

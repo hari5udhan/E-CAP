@@ -1,0 +1,21 @@
+
+  .button{
+    width: 100px;
+    height: 40px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    background-color: #ff6666;
+    color: whitesmoke;
+    border-radius: 8px;
+    margin-left: 10px;
+    border-color: #ff9999;
+    padding-left: 2px; 
+    padding-right: 2px;
+    font-size: 12px;
+}
+
+.button:hover{
+    background-color: whitesmoke;
+    color: #ff6666;
+    border-color: whitesmoke;
+}

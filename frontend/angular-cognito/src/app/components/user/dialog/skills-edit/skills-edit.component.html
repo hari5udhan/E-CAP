@@ -1,0 +1,75 @@
+<mat-tab-group>
+  <mat-tab label="Select by Skill-Group">
+    <div class="formContainer">
+      <h2 style="padding-top: 10px">Skill-Group Selection</h2>
+      <h6>Select your known Skill-Group</h6>
+      <form>
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Skills</mat-label>
+          <input
+            type="text"
+            placeholder="Select"
+            aria-label="Skill"
+            matInput
+            [formControl]="myControl"
+            [matAutocomplete]="auto"
+          />
+          <mat-autocomplete
+            autoActiveFirstOption
+            #auto="matAutocomplete"
+            (optionSelected)="onSelect($event)"
+          >
+            <mat-option
+              *ngFor="let option of filteredOptions | async"
+              [value]="option"
+            >
+              {{ option }}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </form>
+
+      <form [formGroup]="coursesForm">
+        <mat-form-field
+          class="example-chip-list"
+          appearance="outline"
+          style="width: 400px; height: auto; padding-left: 20px"
+        >
+          <mat-label>Courses</mat-label>
+          <mat-chip-grid #chipGrid aria-label="Course selection">
+            <mat-chip-row
+              *ngFor="let course of newCoursesList"
+              (removed)="removeNew(course)"
+            >
+              {{ course }}
+              <!-- <button > -->
+              <mat-icon matChipRemove [attr.aria-label]="'remove ' + course"
+                >cancel</mat-icon
+              >
+              <!-- </button> -->
+            </mat-chip-row>
+          </mat-chip-grid>
+          <input
+            placeholder="New Course..."
+            #courseInput
+            formControlName="courses"
+            [matChipInputFor]="chipGrid"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+            (matChipInputTokenEnd)="addNewCourse($event)"
+          />
+        </mat-form-field>
+      </form>
+      <div class="row row-cols-4" style="padding-left: 25%">
+        <div class="col">
+          <button mat-fab color="warn" mat-dialog-close>Close</button>
+        </div>
+        <div class="col" style="padding-left: 23%">
+          <button class="button" (click)="onSubmit()">Submit</button>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="Select by Skill">
+    <app-skill-form></app-skill-form>
+  </mat-tab>
+</mat-tab-group>

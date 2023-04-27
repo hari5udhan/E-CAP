@@ -1,0 +1,29 @@
+<mat-toolbar>
+  <span style="color: white" (click)="onClick()"
+    ><img
+      src="assets/icons/icons.png"
+      alt=""
+      style="padding-right: 10px"
+      (click)="onClick()"
+    />E-CAP</span
+  >
+
+  <span class="example-spacer"></span>
+  <!-- <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with add icon">
+        <mat-icon (click)="openAccInfo()" >account_box</mat-icon>
+      </button> -->
+  <button
+    mat-icon-button
+    class="example-icon favorite-icon"
+    aria-label="Example icon-button with add icon"
+  >
+    <mat-icon (click)="openForm()">add_box</mat-icon>
+  </button>
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with exit icon"
+  >
+    <mat-icon (click)="signOut()">exit_to_app</mat-icon>
+  </button>
+</mat-toolbar>

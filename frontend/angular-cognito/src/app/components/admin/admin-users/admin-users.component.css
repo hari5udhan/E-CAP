@@ -1,0 +1,77 @@
+
+.container{
+    align-items: center;
+    margin-left: 120px;
+}
+.mat-toolbar{
+    background-color: black;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+   
+  }
+  .nav-link {
+    color: whitesmoke;
+    font-size: 0.7em;
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  .nav-link:hover{
+    color: #80d4ff;
+  }
+.example-icon{
+    background-color: black;
+    color: whitesmoke;
+    margin-right: 10px;
+}
+
+.example-icon:hover{
+    background-color: whitesmoke;
+    color: black;
+}
+
+.example-container{
+    height: 100%;
+}
+
+.viewDetails{
+    padding: 10px 0 0 10px;
+    width: 500px;
+    height: 100px;
+    position: relative;
+    top: 20px;
+    left: 150px;
+    border: 1px dotted black;
+}
+
+#hide{
+    animation: all 0s ease-in 2s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes hideAnimation {
+    to {
+      visibility: hidden;
+      width: 0;
+      height: 0;
+    }
+  }
+
+  .button{
+    width: 100px;
+    height: 40px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    background-color: #262626;
+    color: whitesmoke;
+    border-radius: 8px;
+    margin-left: 10px;
+    font-size: 12px;
+}
+
+.button:hover{
+    background-color: whitesmoke;
+    color: #262626;
+}
+

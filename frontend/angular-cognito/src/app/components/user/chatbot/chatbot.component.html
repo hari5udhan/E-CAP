@@ -1,0 +1,43 @@
+<div *ngIf="isChatBox">
+    <div class="wrapper">
+        <div class="chat-box">
+          <div class="header">
+            <h5 style="color: white; padding-left: 20px; font-size: 16px; margin: 4px 0 4px 0; ">Chatbox</h5>
+            <div class="close" (click)="closeChat()" style="color: white; margin: 4px 10px 4px 0;">X</div>
+          </div>
+          <div class="message-box">
+            <div *ngFor="let message of chatHistory">
+                <div *ngIf="message.isUser; else botMessage">
+                  <p class="userChat"><strong>{{message.isUser}}</strong>: {{ message.text }}</p>
+                </div>
+                <ng-template #botMessage>
+                  <p class="botChat"><strong>{{message.isUser}}</strong>:{{ message.text }}</p>
+                </ng-template>
+              </div>
+            </div>
+          <section>
+            <div class="options" *ngIf="isOptions">
+                  <button (click)="onSuggest()">Next Certification</button>
+                  <!-- <button (click)="onGamePlay()" style="padding-right: 60px;">Game Play</button> -->
+                  <button (click)="onChat()" style="padding-right: 105px;">Chat</button>
+            </div>
+            <div class="selection" *ngIf="isSelection">
+              <button (click)="onSelect('Amazon Web Service(AWS)')" style="padding-right: 22px;">Amazon Web Service(AWS)</button>
+              <button (click)="onSelect('Google Cloud Platform(GCP)')" value="Google Cloud Platform(GCP)" >Google Cloud Platform(GCP)</button>
+              <button (click)="onSelect('Microsoft Azure')" value="Microsoft Azure" style="padding-right: 113px;">Microsoft Azure</button>
+
+        </div>
+            <div class="inputBox" *ngIf="isInput">
+                <input [(ngModel)]="newMessage" (keyup.enter)="sendMessage(newMessage)" placeholder="Type your message here..." style="width: 80%; height: 15%;">
+                <mat-icon (click)="sendMessage(newMessage)" style="position: relative; top: 8px; left: 8px;">send icon</mat-icon>
+            </div>
+          </section>
+        </div>
+    </div>
+</div>
+
+<div class="chatButton" *ngIf="isChatButton" mat-fab>
+    <img src="assets/icons/chatbot.png" alt=""  (click)="onClick()">
+    <!-- <mat-icon style="transform: scale(1.75);"  (click)="onClick()">chat icon</mat-icon>  -->
+</div>
+

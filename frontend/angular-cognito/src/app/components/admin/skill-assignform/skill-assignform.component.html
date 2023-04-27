@@ -1,0 +1,97 @@
+<div class="formContainer">
+  <h3>Employee Details</h3>
+  <form [formGroup]="employeeform">
+    <div class="row row-cols-2">
+      <div class="col">
+        <mat-form-field appearance="outline">
+          <mat-label>First Name</mat-label>
+          <input
+            type="text"
+            name="fname"
+            placeholder="First Name"
+            matInput
+            formControlName="fname"
+          />
+        </mat-form-field>
+      </div>
+
+      <div class="col">
+        <mat-form-field appearance="outline">
+          <mat-label>Last Name</mat-label>
+          <input
+            type="text"
+            name="lname"
+            placeholder="Last Name"
+            matInput
+            formControlName="lname"
+          />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Mail</mat-label>
+      <input
+        type="text"
+        name="mail"
+        placeholder="Mail"
+        matInput
+        formControlName="mail"
+      />
+    </mat-form-field>
+    <div class="row row-cols-2">
+      <div class="col">
+        <mat-form-field appearance="outline">
+          <mat-label>SL</mat-label>
+          <input
+            type="text"
+            name="sl"
+            placeholder="SL"
+            matInput
+            formControlName="sl"
+          />
+        </mat-form-field>
+      </div>
+
+      <div class="col">
+        <mat-form-field appearance="outline">
+          <mat-label>SBU</mat-label>
+          <input
+            type="text"
+            name="sbu"
+            placeholder="SBU"
+            matInput
+            formControlName="sbu"
+          />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Skills</mat-label>
+      <input
+        type="text"
+        placeholder="Select"
+        aria-label="Skill"
+        matInput
+        [formControl]="myControl"
+        [matAutocomplete]="auto"
+      />
+      <mat-autocomplete
+        autoActiveFirstOption
+        #auto="matAutocomplete"
+        (optionSelected)="onSelect($event)"
+      >
+        <mat-option
+          *ngFor="let option of filteredOptions | async"
+          [value]="option"
+        >
+          {{ option }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+
+  <button mat-fab color="warn" mat-dialog-close>Close</button>
+  <button mat-fab color="warn" (click)="onApprove()">Update</button>
+</div>

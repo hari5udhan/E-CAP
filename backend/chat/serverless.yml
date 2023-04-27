@@ -1,0 +1,22 @@
+service: chat
+frameworkVersion: '3'
+
+plugins:
+  - serverless-iam-roles-per-function
+  - serverless-offline 
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: ap-south-1
+
+functions:
+  generateText:
+    handler: handler.chatbot
+    events:
+      - http:
+          path: /
+          method: get
+          cors: true
+
+

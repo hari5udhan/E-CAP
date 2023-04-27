@@ -1,0 +1,62 @@
+.mainForm{
+    display: flex;
+    flex-direction: column;
+}
+.formContainer h2{
+    width: 100%;
+    text-align: center;
+    text-decoration: solid;
+}
+
+.formContainer mat-form-field{
+    width: 630px;
+    padding: 10px 20px 5px 20px;
+    color: black;
+
+}
+.formContainer button{
+    align-self: end;
+    width: 100px;
+    height: 40px;
+    margin-right: 30px;
+    margin-bottom: 10px;
+    background-color: black;
+    color: whitesmoke;
+    border-radius: 8px;
+    margin-left: 10px;
+
+}
+.formContainer button:hover{
+    background-color: whitesmoke;
+    color: black;
+}
+
+
+.dateContainer{
+    display: flex;
+    flex-direction: row;
+}
+.dateContainer mat-form-field{
+    width: 305px;
+    color: black;
+}
+
+.tittle{
+    font-size: 10px;
+    position: absolute;
+    left: 280px;
+}
+
+.dateContainer1 button{
+    background-color: black;
+    color: whitesmoke;
+    border-radius: 4px;
+    position: relative;
+    bottom: 50px;
+    width: 80px;
+    height: 20px;
+}
+
+.dateContainer1 label{
+    font-weight: bold;
+}

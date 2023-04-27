@@ -1,0 +1,52 @@
+<mat-toolbar>
+  <!-- <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with add icon">
+      <mat-icon (click)="drawer.toggle()">menu</mat-icon>
+    </button> -->
+  <span style="color: white" (click)="onClick()"
+    ><img
+      src="assets/icons/icons.png"
+      alt=""
+      style="padding-right: 10px"
+      (click)="onClick()"
+    />Admin Portal</span
+  >
+  <span class="example-spacer"></span>
+  <!-- <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with add icon">
+        <mat-icon (click)="openAccInfo()" >account_box</mat-icon>
+      </button> -->
+  <ul class="nav">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="/admin-projects"
+        >Projects</a
+      >
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="/skill"
+        >Skill Approval</a
+      >
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="/certificates"
+        >Certificates</a
+      >
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/trainingRequests">Training</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/view-user">Users</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/course" style="padding-right: 100px"
+        >Courses / Assessments</a
+      >
+    </li>
+  </ul>
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with exit icon"
+  >
+    <mat-icon (click)="signOut()">exit_to_app</mat-icon>
+  </button>
+</mat-toolbar>

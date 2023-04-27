@@ -1,0 +1,117 @@
+.container-fluid{
+    height: 135%;
+    width: 100%;
+    overflow: visible;
+    background-color: whitesmoke;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+   
+  }
+
+  .nav-link{
+    font-size: 16px; 
+    font-weight: 700; 
+    color: #1a1a1a;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+
+  }
+  .nav-link:hover{
+    border-bottom: 2px solid #80d4ff;
+  }
+  .nav-link:active{
+    border-bottom: 2px solid #80d4ff;
+  }
+
+*{
+  padding: 0;
+  margin: 0;
+}
+
+.quotes{
+  height: 38%;
+  width: 50%;
+  position: absolute;
+  top: 30%;
+  left: 25%;
+  background-color: transparent;
+}
+.quotes button{
+  padding: 1.5% 7%;
+  border: 0;
+  background-color: #66ccff;
+  border-radius: 3px;
+  margin-top: 5%;
+  letter-spacing: 1px;
+  color: #fff;
+  cursor: pointer;
+  position: relative;
+  left: 38%;
+}
+
+.card-container .row{
+   padding-left: 10%;
+   padding-top: 5%;
+   padding-right: -10px;
+}
+.card-container{
+  padding-bottom: 70px;
+}
+
+.card-title{
+  padding-bottom: 5px;
+  font-family: 'Open Sans', sans-serif;
+
+}
+
+.card-text{
+  text-align: justify;
+  color: #4d4d4d;
+  font-family: 'Poppins', sans-serif;
+}
+
+.middle-container{
+  background-color: #1a1a1a;
+  height: 35%;
+  width: 100%;
+  text-align: center;
+}
+
+.middle-container h4{
+  padding-top: 5px;
+  color: #e6e6e6;
+  font-family: 'Solitreo', cursive;  
+  font-size: 2.5em;
+}
+
+.middle-container h5{
+  padding-top: 10px;
+  color: #e6e6e6;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.middle-container p{
+  padding: 30px 10px 40px 10px;
+  color: #bfbfbf;
+
+}
+
+.bottom-container{
+  background-color: #e6e6e6;
+  height: 8%;
+  width: 100%;
+  text-align: center;
+}
+
+.bottom-container h6{
+  font-family: 'Space Mono', monospace;
+  color: #4d4d4d;
+  font-size: 0.8em;
+}
+
+.bottom-container .col{
+  padding-top: 10px;
+  padding-bottom: 16px;
+}

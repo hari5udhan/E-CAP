@@ -1,0 +1,10 @@
+<div class="container">
+  <p>For requesting deletion of certificate provide an reason?</p>
+  <mat-form-filed>
+    <input type="text" name="reason" id="reason" matInput [(ngModel)]="reason">
+  </mat-form-filed>
+  <div class="buttons">
+    <button  class="closeButton" mat-fab color="warn" mat-dialog-close>Cancel</button>
+    <button mat-fab color="primary" class="confirmButton" (click)="onConfirm(reason)" style="background-color: #ff6666; border-color: #ff6666;">Submit</button>
+  </div>
+</div>

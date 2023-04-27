@@ -1,0 +1,42 @@
+<div class="container" *ngIf="user">
+    <div class="row w-100 vh-100 justify-content-centre align-items-centre">
+      <div *ngIf="!isForgotPassword">
+      <div class="auth-box">
+       
+          <div class="header">
+            <h2>Login</h2>
+            <h4>Please enter your login informations</h4>
+          </div>
+          <div class="form"  style="font-family: 'Poppins', sans-serif;">
+              <input type="email" matInput name="email" placeholder="Email"  [(ngModel)]="user.email">
+  
+              <input [type]="user.showPassword ? 'text' : 'password'" name="assword" placeholder="Password" [(ngModel)]="user.password" (keyup.enter)="login()">
+              <div>
+                <input type="checkbox" [checked]="user.showPassword" (change)="user.showPassword =!user.showPassword"  style="font-family: 'Poppins', sans-serif;">
+                Show Password
+              </div>
+              <p>New user?<a  href="/signup"> Sign-Up</a></p>
+              <button (click)="login()" >Login</button>
+              <p>Forgot Password <a (click)="forgotPassword()" style="color: gray; cursor: pointer; font-weight: bold;">Click here!</a></p>         
+             </div>
+        
+        </div>
+      </div>
+
+      <div *ngIf="isForgotPassword" class="verification">
+        <div class="header" style="font-family: 'Poppins', sans-serif;">
+          <h2 style="font-size: 1.7em;">Account Recovery</h2>
+          <h4>Enter your email address to reset your password</h4>
+        </div>
+        <div class="form">
+          <input type="text" name="recoveryCode" placeholder="Enter Verification code" [(ngModel)]="user.code">
+          <input [type]="user.showPassword ? 'text' : 'password'" name="newPassword" placeholder="Enter the new password" [(ngModel)]="newPassword">
+          <div>
+            <input type="checkbox" [checked]="user.showPassword" (change)="user.showPassword =!user.showPassword" id="input">
+            Show Password
+          </div>
+          <button (click)="forgotPassword()">Confirm</button>
+        </div>
+      </div>
+    </div>
+  </div>

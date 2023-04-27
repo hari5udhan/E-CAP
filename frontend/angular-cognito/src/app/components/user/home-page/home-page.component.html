@@ -1,0 +1,148 @@
+<div class="container">
+  <div class="user-profile">
+    <a (click)="onEditProfileDetails()"><mat-icon>edit</mat-icon></a>
+
+    <div class="row row-cols-3">
+      <img src="assets/team.png" alt="" />
+      <div class="col" style="margin-top: 10px">
+        <h6>Name: {{ name }}</h6>
+        <div class="row">
+          <h6>Email: {{ userMail }}</h6>
+        </div>
+        <div class="row">
+          <h6>SL: {{ sl }}</h6>
+        </div>
+        <div class="row">
+          <h6>SBU: {{ sbu }}</h6>
+        </div>
+        <div class="row">
+          <h6>Designation: {{ role }}</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats-bar">
+    <h6>Profile Activity</h6>
+    <div class="row row-cols-6">
+      <div class="col" #cluster>
+        <a (click)="onclick('cluster')" style="cursor: pointer" value="skill">
+          <div class="cards">
+            <h3>{{ approvedSkillCount }}</h3>
+            <h4>Acquired Skills</h4>
+          </div>
+        </a>
+      </div>
+      <div class="col" #skill>
+        <a (click)="onclick('skill')" style="cursor: pointer">
+          <div class="cards">
+            <h3>{{ userCourseCount }}</h3>
+            <h4>Completed Skill sets</h4>
+          </div>
+        </a>
+      </div>
+
+      <div class="col" #skillGap>
+        <a
+          (click)="onclick('skillGap')"
+          style="cursor: pointer"
+          value="courseGap"
+        >
+          <div class="cards">
+            <h3>{{ uncompletedCoursesCount }}</h3>
+            <h4>Skill Gap</h4>
+          </div>
+        </a>
+      </div>
+
+      <div class="col" #certificates>
+        <a (click)="onclick('certificates')" style="cursor: pointer">
+          <div class="cards">
+            <h3>{{ certificatesCount }}</h3>
+            <h4>Certificates</h4>
+          </div>
+        </a>
+      </div>
+
+      <div class="col" #ongProjects>
+        <a (click)="onclick('ongProjects')" style="cursor: pointer">
+          <div class="cards">
+            <h3>{{ uncompletedProjectsCount }}</h3>
+            <h4>Ongoing Projects</h4>
+          </div>
+        </a>
+      </div>
+
+      <div class="col" #projects>
+        <a (click)="onclick('projects')" style="cursor: pointer">
+          <div class="cards">
+            <h3>{{ completedProjectsCount }}</h3>
+            <h4>Completed Projects</h4>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="row" style="margin-left: 2%; padding-top: 20px">
+    <h6 style="margin-left: 1%; font-size: 1.2rem">Quick Actions</h6>
+    <div class="col">
+      <a style="cursor: pointer" (click)="onEditProfileDetails()">
+        <div class="quick-actions">
+          <div class="actions">
+            <img
+              src="assets/icons/profile.png"
+              alt=""
+              style="height: auto; padding: 30px 4px 22px 42px"
+            />
+            <p>Completed your Profile {{ profilePercentage }}%</p>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="col">
+      <a style="cursor: pointer" (click)="onSkillEdit(skillgap)">
+        <div class="quick-actions">
+          <div class="actions">
+            <img
+              src="assets/icons/skill.png"
+              alt=""
+              style="height: auto; padding: 30px 4px 22px 42px"
+            />
+            <p>Add new Skills into your knowledge</p>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="col">
+      <a style="cursor: pointer" (click)="onTakeAssesments()">
+        <div class="quick-actions">
+          <div class="actions">
+            <img
+              src="assets/icons/task.png"
+              alt=""
+              style="height: auto; padding: 30px 4px 22px 42px"
+            />
+            <p>Take Assesments</p>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="col">
+      <a style="cursor: pointer" (click)="onProject()">
+        <div class="quick-actions">
+          <div class="actions">
+            <img
+              src="assets/icons/project.png"
+              alt=""
+              style="height: auto; padding: 30px 4px 22px 42px"
+            />
+            <p>Update Project Status</p>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>

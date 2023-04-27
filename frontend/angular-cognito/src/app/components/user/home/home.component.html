@@ -1,0 +1,271 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+  <div
+    class="top-container"
+    [ngStyle]="{ 'background-image': 'url(assets/home.jpeg)', opacity: '0.9' }"
+  >
+    <h3 style="padding-top: 10%">Certifications,</h3>
+    <h3 style="padding-bottom: 40px">at your finger clicks</h3>
+    <button (click)="ontraining()">Request For Training</button>
+    <h6 style="padding-top: 30px; padding-left: 80px; color: #8c8c8c">
+      Popular Requests
+    </h6>
+    <div class="hstack gap-3">
+      <a (click)="openForm('AWS-SAA')">AWS-Solutions Architect Associate</a>
+      <a (click)="openForm('GCP-PDE')">GCP- Professional Data Engineer</a>
+      <a (click)="openForm('AzA')">Azure Administrator</a>
+    </div>
+  </div>
+  <div class="middle-container">
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <img
+            src="assets/aws.png"
+            class="card-img-top"
+            alt="..."
+            style="
+              height: 100px;
+              width: 100px;
+              position: relative;
+              left: 100px;
+              top: 10px;
+            "
+          />
+          <div class="card-body">
+            <h5 class="card-title">Amazon Web Service</h5>
+            <p class="card-text">
+              Explore AWS role-based certifications and our Specialty
+              certifications in specific technical areas.For click below
+              certification exam guides and details.
+            </p>
+            <a
+              href="https://aws.amazon.com/certification/"
+              class="btn"
+              style="
+                position: relative;
+                left: 50px;
+                background-color: black;
+                color: white;
+              "
+              >View more</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img
+            src="assets/gcp.png"
+            class="card-img-top"
+            alt="..."
+            style="
+              height: 120px;
+              width: 100px;
+              position: relative;
+              left: 100px;
+              top: 10px;
+            "
+          />
+          <div class="card-body">
+            <h5 class="card-title">Google Cloud Platform</h5>
+            <p class="card-text">
+              Explore GCP role-based certifications and our Specialty
+              certifications in specific technical areas.For click below
+              certification exam guides and details.
+            </p>
+            <a
+              href="https://cloud.google.com/certification"
+              class="btn"
+              style="
+                position: relative;
+                left: 50px;
+                background-color: black;
+                color: white;
+              "
+              >View more</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img
+            src="assets/azure.png"
+            class="card-img-top"
+            alt="..."
+            style="
+              height: 100px;
+              width: 100px;
+              position: relative;
+              left: 100px;
+              top: 10px;
+            "
+          />
+          <div class="card-body">
+            <h5 class="card-title">Microsoft Azure</h5>
+            <p class="card-text">
+              Explore Azure role-based certifications and our Specialty
+              certifications in specific technical areas.For click below
+              certification exam guides and details.
+            </p>
+            <a
+              href="https://learn.microsoft.com/en-us/certifications/browse/"
+              class="btn"
+              style="
+                position: relative;
+                left: 50px;
+                background-color: black;
+                color: white;
+              "
+              >View more</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <app-chatbot></app-chatbot>
+  <div class="table-container">
+    <div style="width: 40%; padding-left: 120px">
+      <table mat-table [dataSource]="records" style="width: 30%">
+        <ng-container matColumnDef="certification">
+          <th mat-header-cell *matHeaderCellDef>Certification</th>
+          <td mat-cell *matCellDef="let row">
+            {{ row.certificationprovider }} {{ row.certificationname }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef>Status</th>
+          <td
+            mat-cell
+            *matCellDef="let row"
+            [ngClass]="{
+              'green-row': row.status === 'Approved',
+              'red-row': row.status === 'Rejected'
+            }"
+          >
+            {{ row.status }}
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="2">No pending Requests</td>
+        </tr>
+      </table>
+
+      <mat-paginator
+        [pageSizeOptions]="[5, 10, 25, 100]"
+        aria-label="Select page of users"
+      ></mat-paginator>
+    </div>
+    <div style="width: 0%; padding-left: 200px">
+      <table mat-table [dataSource]="pending" style="width: 50%">
+        <ng-container matColumnDef="certification">
+          <th mat-header-cell *matHeaderCellDef>Certification</th>
+          <td mat-cell *matCellDef="let row">
+            {{ row.certificationprovider }} {{ row.certificationname }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef>Status</th>
+          <td mat-cell *matCellDef="let row">{{ row.status }}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">No pending Requests</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="bottom-container">
+    <div class="col">
+      <a href="#"><img src="assets/icons/face.png" alt="" /></a>
+      <a href="#"><img src="assets/icons/insta.png" alt="" /></a>
+      <a href="#"><img src="assets/icons/li.png" alt="" /></a>
+      <a href="#"><img src="assets/icons/yt.png" alt="" /></a>
+    </div>
+    <h6 style="color: white">
+      <img src="assets/icons/copy.png" alt="" /> 2023 All rights Reserved | Made
+      with
+      <img
+        src="assets/icons/heart.png"
+        alt=""
+        style="position: relative; bottom: 3px"
+      />
+      by Sudhan
+    </h6>
+  </div>
+</div>
+
+<!-- 
+<mat-form-field appearance="outline" style="width: 600px;">
+  <mat-label>Search</mat-label>
+  <input matInput (keyup.enter)="applyFilter($event)" placeholder="Ex. AWS, CCP" #input style="color: #f2f2f2; ">
+</mat-form-field>
+</div>
+<div *ngIf="isCertificate" class="certificate">
+<div class="mat-elevation-z8" style="width: 1000px;">
+  <table mat-table [dataSource]="dataSource" matSort>
+      
+    
+    <ng-container matColumnDef="certificationProvider">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Certification Provider </th>
+      <td mat-cell *matCellDef="let row"> {{row.certificationProvider}} </td>
+        </ng-container>
+
+    
+    <ng-container matColumnDef="certificationLevel">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Certification Level </th>
+      <td mat-cell *matCellDef="let row"> {{row.certificationLevel}}</td>
+    </ng-container>
+
+   
+    <ng-container matColumnDef="certificationName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Certification Name </th>
+      <td mat-cell *matCellDef="let row"> {{row.certificationName}} </td>
+    </ng-container>
+
+   
+    <ng-container matColumnDef="certificateId">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Certification Id </th>
+      <td mat-cell *matCellDef="let row"> {{row.certificateId}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="dateOfCertification">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Certification Date </th>
+      <td mat-cell *matCellDef="let row"> {{row.dateOfCertification | date }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="dateOfExpiry">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Expiry Date </th>
+      <td mat-cell *matCellDef="let row"> {{row.dateOfExpiry | date }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="validity">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Validity</th>
+      <td mat-cell *matCellDef="let row"> {{row.validity}} </td>
+    </ng-container>
+    
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">No result!</td>
+    </tr>
+</table>
+<button mat-fab color="warn" (click)="close()">Close
+</button>
+
+</div>
+</div> -->

@@ -1,0 +1,60 @@
+.mat-toolbar{
+    background-color: black;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+   
+  }
+
+.icon{
+    padding-right: 10px;
+    position: relative;
+    top: 3px;
+  }
+  
+.example-icon{
+    background-color: black;
+    color: whitesmoke;
+    margin-right: 10px;
+}
+
+.example-icon:hover{
+    background-color: whitesmoke;
+    color: black;
+}
+
+.example-container{
+    height: 100%;
+}
+
+.side-container{
+  text-align: start;
+ 
+}
+
+.card {
+    max-width: 300px;
+    text-align: center;
+    font-family: arial;
+    border: none;
+  }
+.card img{
+  border-radius: 100%;
+  text-align: center;
+  position: relative;
+  left: 100px;
+}
+  
+  .title {
+    color: grey;
+    font-size: 22px;
+  }
+  
+
+  a {
+    text-decoration: none;
+    font-size: 22px;
+    color: black;
+  }
+  

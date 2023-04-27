@@ -1,0 +1,72 @@
+<section class="page-contain" style="position: relative; top: -30%">
+  <div class="data-card">
+    <div matBadge="+1" class="badge" [matBadgeHidden]="deleteReq"></div>
+    <h3>{{ deleteRequests }}</h3>
+    <a href="/requests" style="text-decoration: none">
+      <h4>Delete Requests</h4>
+    </a>
+  </div>
+  <div class="data-card">
+    <div matBadge="+1" class="badge" [matBadgeHidden]="trainReq"></div>
+    <h3>{{ trainingRequests }}</h3>
+    <h4 style="font-size: 0.92em">Pending Training Requests</h4>
+  </div>
+  <div class="data-card">
+    <div matBadge="+1" class="badge" [matBadgeHidden]="newUserReq"></div>
+    <h3>{{ newUser }}</h3>
+    <h4>new User Requests</h4>
+  </div>
+</section>
+<section class="page-contain" style="position: relative; top: -105%">
+  <div class="data-card">
+    <h3>{{ certificateCount }}</h3>
+    <h4>Total Certificates</h4>
+  </div>
+  <div class="data-card">
+    <h3>{{ trainingRecord }}</h3>
+    <h4 style="font-size: 1em">Training Records</h4>
+  </div>
+  <div class="data-card">
+    <h3>{{ users }}</h3>
+    <h4>Number of Users</h4>
+  </div>
+  <!-- <div class="data-card">
+    <h3>{{users}}</h3>
+    <h4 style="font-size: 1em;">Number of Users</h4>
+  </div> -->
+</section>
+<div class="graph">
+  <canvas
+    baseChart
+    [type]="'bar'"
+    [datasets]="datasets"
+    [labels]="labels"
+  ></canvas>
+</div>
+
+<div class="container">
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="username">
+        <th mat-header-cell *matHeaderCellDef>Cognito Username</th>
+        <td mat-cell *matCellDef="let row">{{ row.Username }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef>Verification</th>
+        <td mat-cell *matCellDef="let row">{{ row.UserStatus }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="creation">
+        <th mat-header-cell *matHeaderCellDef>User Created at</th>
+        <td mat-cell *matCellDef="let row">{{ row.UserCreateDate | date }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+    <div class="viewUser">
+      <a href="/view-user" style="color: grey">View all Users</a>
+    </div>
+  </div>
+</div>
